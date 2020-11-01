@@ -1,0 +1,305 @@
+/* Using the ITCSS (http://itcss.io/) architecture for CSS */
+
+
+/* 1. Settings - Preprocessors variables, fonts, imports, etc. */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/* 2. Tools - mixins */
+
+
+/* 3. Generic - very generic CSS rules */
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+i {
+  font-size: 20px;
+}
+
+
+/* 4. Elements - HTML Elements of the page h1-h6, etc. */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #888;
+}
+
+a {}
+
+a:hover {}
+
+input {}
+
+input:focus {}
+
+input[type="submit"],
+input[type="button"] {}
+
+
+/* 5. Objects - wrappers, cards, etc. */
+
+.random-background {
+  background-color: #36a88e;
+  /*top colour*/
+  background-image: -webkit-linear-gradient(top, #36a88e, #f35b47);
+  background-image: -moz-linear-gradient(top, #36a88e, #f35b47);
+  background-image: -o-linear-gradient(top, #36a88e, #f35b47);
+  background-image: linear-gradient(to bottom, #36a88e, #f35b47);
+  height: 200vh;
+  width: 100vw;
+}
+
+.lightbox-blanket {
+  background-color: rgba(30, 30, 30, 0.9);
+  display: block;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  width: 100vw;
+  z-index: 20;
+}
+
+.pop-up-container {
+  height: 100%;
+  width: auto;
+  display: table;
+  margin: auto;
+  position: static;
+}
+
+@media (max-width:400px) {
+  .pop-up-container {
+    width: 96%;
+    margin: 2%;
+  }
+}
+
+.pop-up-container-vertical {
+  height: 100%;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.pop-up-wrapper {
+  -webkit-box-shadow: -45px 49px 83px 1px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: -45px 49px 83px 1px rgba(0, 0, 0, 0.45);
+  box-shadow: -45px 49px 83px 1px rgba(0, 0, 0, 0.45);
+  display: block;
+  padding: 40px;
+  width: auto;
+  position: relative;
+  background-color: white;
+  background: transparent url('http://cdn.pcwallart.com/images/pink-gradient-texture-wallpaper-4.jpg') no-repeat center center;
+  display: block;
+}
+
+.phone-wrapper {
+  background-color: rgba(50, 50, 50, 0.4);
+  width: 800px;
+  height: 600px;
+  padding: 10px;
+}
+
+.phone-pad {
+  background-color: white;
+  height: calc(100% + 40px);
+  display: inline-block;
+  width: calc((100% / 2) - 2px);
+  margin: auto;
+  margin-top: -20px;
+  vertical-align: top;
+  position:relative;
+}
+
+.phone-contacts-wrapper {
+  background-color: transparent;
+  height: calc(100%);
+  padding-left: 8px;
+  display: inline-block;
+  width: calc((100% / 2) - 2px);
+  margin: auto;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.phone-contacts {
+  background-color: rgba(100, 100, 100, 0.3);
+  height: calc(100%);
+  width: calc(100% + 2px);
+  display: inline-block;
+  position: relative;
+}
+
+.phone-pad-input-panel, .phone-pad-alert-panel{
+  background-color: white;
+  height: 90px;
+  padding: 10px;
+  padding-top:28px;
+  position:absolute;
+  width:100%;
+  top:0px;
+}
+
+.phone-pad-alert-panel{
+  background-color: #5cb85c;
+  color:white;
+  font-size:18px;
+  margin-top:25px;
+  padding-top:18px;
+  height: 60px;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.phone-pad-input-add {
+  display: inline-block;
+  width: 11%;
+  text-align:center;
+  vertical-align: middle;
+  color:#888;
+}
+
+.phone-pad-input-text {
+  display: inline-block;
+  width: 76%;
+  vertical-align: middle;
+}
+
+.phone-pad-input-remove {
+  display: inline-block;
+  width: 11%;
+  text-align:center;
+  vertical-align: middle;
+  color:#888;
+}
+
+.phone-pad-input-numbers {
+  margin-top:90px;
+  padding-top: 10px;
+}
+
+.phone-pad-input-number {
+  width: calc((100%/3) - 2.5px);
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+}
+
+.phone-pad-input-call {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.phone-pad-input-call:active, .phone-pad-input-call:hover {
+  background-color: #ccc;
+  cursor:pointer;
+}
+
+.contact-card {
+  height: 100px;
+  width: auto;
+  background-color: white;
+  margin: 10px 0px;
+  box-shadow: 10px 2px 2px 2px rgba(50,50,50, 0.6);
+}
+
+.contact-card:first-child {
+  margin-top: 0;
+}
+
+.contact-image-wrapper {
+  width: 100px;
+  padding: 10px;
+  display: block;
+  display: inline-block;
+}
+
+.contact-image-wrapper img {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.contact-details {
+  display: inline-block;
+  width: calc(100% - 110px);
+  margin: 10px 10px 10px 0;
+  padding-top:5px;
+  overflow: hidden;
+  vertical-align:top;
+  font-size:18px;
+}
+
+.contact-name {
+  font-size: 22px;
+  text-transform:capitalize;
+  }
+
+.contact-email, .contact-phone {
+  height: 1.3em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:16px;
+}
+
+
+/* 6. Components - buttons, menus, images, etc. */
+#number-input {
+  width:100%;
+  font-size:38px;
+  text-align:center;
+  background-color:white;
+  border:none;
+  color:green;
+  border-bottom:1px solid #222;
+}
+
+.input-number {
+  padding: 16px 26px;
+}
+
+.number {
+  padding: 12px 10px;
+  font-size: 28px;
+  cursor:pointer;
+}
+
+.number:hover {
+  border-radius: 50%;
+  background-color: #ccc;
+  
+}
+
+.number span{
+  clear:both;
+  display:block;
+}
+
+i.fa-phone {
+  font-size: 62px;
+  color: green;
+  margin-top:10px;
+  vertical-align:middle;
+}
+
+.contact-phone span{
+  color: green;
+  font-size:18px;
+  font-weight:bold;
+  padding: 0 1px;
+}
+
+
+/* 7. Trumps - text helpers, often !important */
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+    /* Using the ITCSS (http://itcss.io/) architecture for CSS */
+
+
+/* 1. Settings - Preprocessors variables, fonts, imports, etc. */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+/* 2. Tools - mixins */
+
+
+/* 3. Generic - very generic CSS rules */
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+i {
+  font-size: 20px;
+}
+
+
+/* 4. Elements - HTML Elements of the page h1-h6, etc. */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #888;
+}
+
+a {}
+
+a:hover {}
+
+input {}
+
+input:focus {}
+
+input[type="submit"],
+input[type="button"] {}
+
+
+/* 5. Objects - wrappers, cards, etc. */
+
+.random-background {
+  background-color: #36a88e;
+  /*top colour*/
+  background-image: -webkit-linear-gradient(top, #36a88e, #f35b47);
+  background-image: -moz-linear-gradient(top, #36a88e, #f35b47);
+  background-image: -o-linear-gradient(top, #36a88e, #f35b47);
+  background-image: linear-gradient(to bottom, #36a88e, #f35b47);
+  height: 200vh;
+  width: 100vw;
+}
+
+.lightbox-blanket {
+  background-color: rgba(30, 30, 30, 0.9);
+  display: block;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  width: 100vw;
+  z-index: 20;
+}
+
+.pop-up-container {
+  height: 100%;
+  width: auto;
+  display: table;
+  margin: auto;
+  position: static;
+}
+
+@media (max-width:400px) {
+  .pop-up-container {
+    width: 96%;
+    margin: 2%;
+  }
+}
+
+.pop-up-container-vertical {
+  height: 100%;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.pop-up-wrapper {
+  -webkit-box-shadow: -45px 49px 83px 1px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: -45px 49px 83px 1px rgba(0, 0, 0, 0.45);
+  box-shadow: -45px 49px 83px 1px rgba(0, 0, 0, 0.45);
+  display: block;
+  padding: 40px;
+  width: auto;
+  position: relative;
+  background-color: white;
+  background: transparent url('http://cdn.pcwallart.com/images/pink-gradient-texture-wallpaper-4.jpg') no-repeat center center;
+  display: block;
+}
+
+.phone-wrapper {
+  background-color: rgba(50, 50, 50, 0.4);
+  width: 800px;
+  height: 600px;
+  padding: 10px;
+}
+
+.phone-pad {
+  background-color: white;
+  height: calc(100% + 40px);
+  display: inline-block;
+  width: calc((100% / 2) - 2px);
+  margin: auto;
+  margin-top: -20px;
+  vertical-align: top;
+  position:relative;
+}
+
+.phone-contacts-wrapper {
+  background-color: transparent;
+  height: calc(100%);
+  padding-left: 8px;
+  display: inline-block;
+  width: calc((100% / 2) - 2px);
+  margin: auto;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.phone-contacts {
+  background-color: rgba(100, 100, 100, 0.3);
+  height: calc(100%);
+  width: calc(100% + 2px);
+  display: inline-block;
+  position: relative;
+}
+
+.phone-pad-input-panel, .phone-pad-alert-panel{
+  background-color: white;
+  height: 90px;
+  padding: 10px;
+  padding-top:28px;
+  position:absolute;
+  width:100%;
+  top:0px;
+}
+
+.phone-pad-alert-panel{
+  background-color: #5cb85c;
+  color:white;
+  font-size:18px;
+  margin-top:25px;
+  padding-top:18px;
+  height: 60px;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.phone-pad-input-add {
+  display: inline-block;
+  width: 11%;
+  text-align:center;
+  vertical-align: middle;
+  color:#888;
+}
+
+.phone-pad-input-text {
+  display: inline-block;
+  width: 76%;
+  vertical-align: middle;
+}
+
+.phone-pad-input-remove {
+  display: inline-block;
+  width: 11%;
+  text-align:center;
+  vertical-align: middle;
+  color:#888;
+}
+
+.phone-pad-input-numbers {
+  margin-top:90px;
+  padding-top: 10px;
+}
+
+.phone-pad-input-number {
+  width: calc((100%/3) - 2.5px);
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+}
+
+.phone-pad-input-call {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.phone-pad-input-call:active, .phone-pad-input-call:hover {
+  background-color: #ccc;
+  cursor:pointer;
+}
+
+.contact-card {
+  height: 100px;
+  width: auto;
+  background-color: white;
+  margin: 10px 0px;
+  box-shadow: 10px 2px 2px 2px rgba(50,50,50, 0.6);
+}
+
+.contact-card:first-child {
+  margin-top: 0;
+}
+
+.contact-image-wrapper {
+  width: 100px;
+  padding: 10px;
+  display: block;
+  display: inline-block;
+}
+
+.contact-image-wrapper img {
+  display: block;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.contact-details {
+  display: inline-block;
+  width: calc(100% - 110px);
+  margin: 10px 10px 10px 0;
+  padding-top:5px;
+  overflow: hidden;
+  vertical-align:top;
+  font-size:18px;
+}
+
+.contact-name {
+  font-size: 22px;
+  text-transform:capitalize;
+  }
+
+.contact-email, .contact-phone {
+  height: 1.3em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size:16px;
+}
+
+
+/* 6. Components - buttons, menus, images, etc. */
+#number-input {
+  width:100%;
+  font-size:38px;
+  text-align:center;
+  background-color:white;
+  border:none;
+  color:green;
+  border-bottom:1px solid #222;
+}
+
+.input-number {
+  padding: 16px 26px;
+}
+
+.number {
+  padding: 12px 10px;
+  font-size: 28px;
+  cursor:pointer;
+}
+
+.number:hover {
+  border-radius: 50%;
+  background-color: #ccc;
+  
+}
+
+.number span{
+  clear:both;
+  display:block;
+}
+
+i.fa-phone {
+  font-size: 62px;
+  color: green;
+  margin-top:10px;
+  vertical-align:middle;
+}
+
+.contact-phone span{
+  color: green;
+  font-size:18px;
+  font-weight:bold;
+  padding: 0 1px;
+}
+
+
+/* 7. Trumps - text helpers, often !important */
+
+.hidden {
+  display: none;
+}
+    </style>
+</head>
+<body>
+      <div class="lightbox-blanket">
+    <div class="pop-up-container">
+      <div class="pop-up-container-vertical">
+        <div class="pop-up-wrapper">
+          <div class="phone-wrapper">
+            <div class="phone-pad">
+              <div class="phone-pad-input-panel">
+                <div class="phone-pad-input-add"><i class="fa fa-plus"></i></div>
+                <div class="phone-pad-input-text">
+                  <input id="number-input" type="tel" readonly="readonly" />
+                </div>
+                <div class="phone-pad-input-remove"><i class="fa fa-remove"></i></div>
+              </div>
+              <div class="phone-pad-alert-panel" style="display:none;">
+              </div>
+              <div class="phone-pad-input-numbers">
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      1<span>&nbsp;</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      2<span>ABC</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      3<span>DEF</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      4<span>GHI</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      5<span>JKL</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      6<span>MNO</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      7<span>PQRS</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      8<span>TUV</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      9<span>WXYZ</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      *<span>&nbsp;</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      0<span>+</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-pad-input-number">
+                  <div class="input-number">
+                    <div class="number">
+                      #<span>&nbsp;</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-pad-input-call">
+                <i class="fa fa-phone"></i>
+              </div>
+            </div>
+            <div class="phone-contacts-wrapper">
+              <div class="phone-contacts">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="random-background">
+  </div>
+  <script>
+  $(document).ready(function() {  
+  var count = 50;
+  var contacts = [];
+  for (i = 0; i < count; i++) {
+    $.ajax({
+      url: 'https://randomuser.me/api/',
+      dataType: 'json',
+      success: function(data){
+        console.log(data);
+        MakeContactCard(data);
+      }
+    });
+  }
+  //console.log(contacts); 
+});
+
+function MakeContactCard(data){
+  //console.log(data.results[0].user);
+  var phone = (data.results[0].phone);
+  phone = phone.replace(/-/g, "").replace(/\(/g, "").replace(/\)/g, "").replace(/ /g, "");
+  var cardHTML = '<div class="contact-card" phone-data="'+phone+'">'
+  cardHTML+='<div class="contact-image-wrapper"><img src="'+ data.results[0].picture.large +'"/></div>';
+  cardHTML += '<div class="contact-details"><div class="contact-name">'+data.results[0].name.first+ " " + data.results[0].name.last+'</div><div class="contact-phone">'+ phone +'</div><div class="contact-email">'+data.results[0].email+'</div></div>';
+  cardHTML+='</div>';
+  $(".phone-contacts").html($(".phone-contacts").html() + cardHTML);
+}
+
+$(document).on("mousewheel", ".phone-contacts-wrapper", function(e){
+  ScrollContacts(e);
+});
+
+$(document).on("swipe", ".phone-contacts-wrapper", function(e){
+  //Not yet implemented.
+});
+
+function ScrollContacts(e){
+  e.preventDefault();
+  var min = 0;
+  var viewport = $(".phone-contacts-wrapper").height();
+  var max = $(".phone-contacts").prop('scrollHeight');
+  var e = window.event || e; //ie compat
+  var x = e.wheelDelta;  
+  var m = $(".phone-contacts").attr("margin-data");
+  if(m == null) m = 0;
+  var newMar = clamp(-parseInt(parseInt(max)- parseInt(viewport)),parseInt(m)+parseInt(x),min); 
+  SetScrollMargin(newMar);
+  
+}
+
+function SetScrollMargin(newMar){
+  $(".phone-contacts").css("top",parseInt(newMar)+"px");
+  $(".phone-contacts").attr("margin-data", parseInt(newMar));
+}
+
+//call number
+$(document).on("click", ".contact-card", function(){
+  var t = $(this).attr("phone-data");
+  $("#number-input").val(t);
+  CheckNumbers(t);
+});
+
+//Add digit to number to dial
+$(document).on("click", ".number", function(){
+  DialNumPad(this);
+});
+
+function DialNumPad(x){
+  var n = $(x).html().toString();
+  var newNum = $("#number-input").val() + $.trim(n).substring(0,1);
+  CheckNumbers(newNum);
+  $("#number-input").val(newNum);
+}
+
+//check contacts for number dialed
+function CheckNumbers(n){
+  SetScrollMargin(0);
+  var contacts = $(".contact-card");
+  console.log(n);
+  $(contacts).each(function(x,c){
+    var a = $(c).attr("phone-data");
+    var b = n.toString();
+    //console.log("A: "+ a + "  B: " + b);
+    var ind = a.indexOf(b);
+    if(ind > -1){
+      $(c).show();
+      var t = HighlightPhoneNum(a,b);
+      SearchChildNodesForPhone(c,t);
+    }
+    else{
+      $(c).hide();
+      SearchChildNodesForPhone(c,a);
+    }
+  });
+}
+
+function HighlightPhoneNum (a,b){
+  var ind = a.indexOf(b);
+  var s = a.substring(0,ind);
+  var m = a.substring(ind, ind + b.length);
+  var e = a.substring(ind + b.length);
+  //console.log("S: "+s+" M: "+m+" E: "+e);
+   return s+"<span>"+m+"</span>"+e;   
+}
+
+//searchchildnodes to highlight phone
+function SearchChildNodesForPhone(cc, t){
+  for (var i = 0; i < cc.childNodes.length; i++) {
+    
+     SearchChildNodesForPhone(cc.childNodes[i], t);
+    if($(cc.childNodes[i]).attr("class") == "contact-phone"){
+      //console.log("found phone." + $(cc.childNodes[i]).attr("class"));
+      $(cc.childNodes[i]).html(t);
+    }
+  }
+}
+
+//Add number to contacts
+$(document).on("click", ".phone-pad-input-add", function(){
+  $(".phone-pad-alert-panel").toggle();
+  $(".phone-pad-alert-panel").html("Added to contacts.");
+  setTimeout(function(){
+     $(".phone-pad-alert-panel").toggle("fade");
+  }, 2000);
+});
+
+//Remove phone number
+$(document).on("click", ".phone-pad-input-remove", function(){
+  $("#number-input").val($("#number-input").val().substring(0, $("#number-input").val().length-1));
+  var contacts = $(".contact-card");
+  $(contacts).each(function(x,c){
+    $(c).show();
+    SearchChildNodesForPhone(c,$(c).attr("phone-data"));
+  });
+});
+
+//make call
+$(document).on("click", ".phone-pad-input-call", function(){
+  if($("#number-input").val().length < 2){return;}
+  $(".phone-pad-alert-panel").toggle();
+  $(".phone-pad-alert-panel").html("Calling... "+$("#number-input").val());
+  setTimeout(function(){
+     $(".phone-pad-alert-panel").toggle("fade");
+  }, 2000);
+});
+
+//clamp for viewport
+function clamp (min,x,max) {
+  return x < min ? min : (x > max ? max : x);
+
+}
+  </script>
+</body>
+</html>
