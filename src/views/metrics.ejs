@@ -1,14 +1,152 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BATS</title>
-     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-orange.min.css" /> 
-     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-<h1>lsdkjls jlsjd </h1>
-   
-  </body>
+
+<head>
+	<title>BATS</title>
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-orange.min.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript"></script>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.7.0/tf.min.js" integrity="sha512-rCs2TFnjn+38KBvUfM+5HAZ44/yZoUwfd3DX+1wQ4ofAVi5vxiFI55xeAEUpAhQ1Gc0G7D0/8H1VF51fhyZsVA==" crossorigin="anonymous"></script>
+	<!-- <link rel='stylesheet' href='/stylesheets/phonepad.css' /> -->
+	<link rel='stylesheets' href='stylesheets/dialer.css' />
+    <style>
+    textarea {
+    min-width: 100%;
+    height: 120px;
+}
+    </style>
+</head>
+
+<body>
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<a class="mdl-navigation__link" href="/index"><span class = "material-icons mdl-badge" style="width: 10px;">phone</span></a>
+            <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="/">Home</a>
+        <a class="mdl-navigation__link" href="/login">Logout</a>
+      </nav>
+		</div>
+		<div class="demo-layout-transparent mdl-layout">
+			<div class="mdl-layout__drawer">
+				<span class="mdl-layout-title">Welcome back</span>
+				<nav class="mdl-navigation">
+					<a class="mdl-navigation__link" href="#">Profile</a>
+					<a class="mdl-navigation__link" href="#">Settings</a>
+					<a class="mdl-navigation__link" href="/login">Logout</a>
+					<a class="mdl-navigation__link" href="#"><span class = "material-icons mdl-badge" data-badge = "1" style="width: 10px;">account_box</span></a>
+					<a class="mdl-navigation__link" href="#"><span class = "material-icons mdl-badge" data-badge = "1" style="width: 10px;">message</span></a>
+                    
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<!-- nav -->
+	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+		<div class="mdl-tabs__tab-bar" style="background-color:;">
+			<a href="#markets" class="mdl-tabs__tab is-active">Duration</a>
+			<a href="#sales" class="mdl-tabs__tab">No. Calls</a>
+			<a href="#pear-to-pear" class="mdl-tabs__tab">Transcripts</a>
+		</div>
+		<div class="mdl-tabs__panel is-active" id="markets">
+			<h1>2hr34mins</h1>
+
+		</div>
+		<!-- Sales -->
+		<script src="/javascripts/modals.js"></script>
+		<div class="mdl-tabs__panel" id="sales">
+			<h1>4</h1>
+		</div>
+		<!-- Pear to Pear trade -->
+		<div class="mdl-tabs__panel" id="pear-to-pear" style="text-align: center; ">
+			
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Languages</h5>
+                    <textarea id="languages">["Deutsch", "Fran\u00e7ais", "Itialiano", "Rumantsch", "English"]</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vocabulary</h5>
+                    <textarea id="vocabulary">[" a ", "s e", " in", "cha", "the", "e. ", "n s", "ers", "e f", "ti ", "st ", "azi", " l\u2019", "s. ", "n i", "erl", "er ", "de ", " re", "ur ", "da ", "es ", "i c", "uns", "lic", "ons", "to ", "ent", "pli", " su", "gen", "con", "for", " al", "e c", "e l", "von", "e p", "ni ", "izr", "el ", "ada", "ch ", "una", "uis", "l 1", " ch", "des", "tsc", " le", "ted", "hwe", "a. ", "ant", "en ", "ono", "s s", " as", "n t", "si ", " tu", "lan", "ed ", "sa ", "di ", "ung", "les", "sta", "nta", "a c", "del", "au ", " mo", "che", "ver", " se", " pr", "ra ", "nge", "ist", "ize", "swi", "cht", "a s", "of ", "tra", " we", "cun", "en.", "her", "ro ", "ss ", " ei", "ral", "e a", "one", "d i", "ns ", " fo", "aus", "sch", "zer", " da", "und", " im", "son", "zze", "a e", "ica", " sw", "dal", " la", "iss", "all", "ate", "nce", "a l", "nd ", "ala", "im ", "ne ", " is", "nen", " ne", "ils", " to", "n d", "zio", "us ", "wit", " so", "is ", "ue ", "svi", "ont", "et ", " th", "eur", "t l", "ta ", ", a", " st", "ach", "te ", " ca", "ll'", "a t", ". l", "ell", "s p", "itz", "oun", "le ", "s o", " un", "nde", " au", "e e", "las", "me ", "ziu", "ts ", ". d", " ce", "dan", "mit", "ter", "a p", "no ", "ind", "s l", "e, ", "den", "par", "re ", " vo", "ina", " be", "ion", "a d", "ura", "he ", "tze", " es", " ar", " et", "nto", " pa", " ge", " po", " qu", "chw", "o a", "tio", "iqu", "la ", "tad", "li ", "on ", " \u00e0 ", " an", " co", " wa", " mi", "tre", " ha", "ls ", "han", "s a", "ich", "our", " of", "n l", "un ", "ren", "a, ", "nel", " te", "sen", "il ", "s c", "ng ", "du ", "iun", " si", "ha ", "ert", "n. ", "ste", "era", "na ", " \u00e8 ", "der", "eme", "men", "lla", "sui", "rla", "a m", "an ", "t d", "s, ", "rei", "r s", "ing", "rde", "ran", "ber", "viz", " zu", ", d", "lle", "ali", "ern", "eiz", "nte", "in ", "and", " l'", "ine", "s t", "s d", "e t", " il", "zra", "se ", "i a", " sc", "ans", " cu", "e d", " fr", "ere", "e o", "th ", "ede", "que", "are", "das", " de", "it ", "hen", "man", " pe", "f t", "r l", "\u00e9ra", "ly ", "oni", "n a", "or ", "ie ", " en", " e ", "o d", "nt ", "iz ", " d'", "ire", " sv", ", l", "ale", "ia ", "ein", "per", "ato", "ten", "i s", "sse", "wei", "ati", "al ", " ve", "die", "e i", "eit", "isc", "i p", "o s", "i d", "d t", "res", "est", " pl", " di", "izz", " du", "as ", "wis", "e s"]</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Transcript</h5>
+                    <textarea id="text">The email I sent was just a summary of yesterdays meeting</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3"></div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Predictions</h5>
+                    <p class="card-text">Neural network output</p>
+                    <pre id="prediction"></pre>
+                    <button type="button" class="btn btn-primary" onclick="guess()">Guess language</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		</div>
+	</div>
+    <script>
+    async function guess() {
+
+    // Load language, vocabulary and text
+    var languages = JSON.parse(document.getElementById("languages").value)
+    var vocabulary = JSON.parse(document.getElementById("vocabulary").value)
+    var text = document.getElementById("text").value
+
+    // Encode text
+    var text_encoded = new Array(vocabulary.length).fill(0);
+    for (var i = 0; i < text.length; i++) {
+        for (var j = 0; j < vocabulary.length; j++) {
+            ngram = vocabulary[j]
+            if (text.substr(i, ngram.length) === ngram) {
+                text_encoded[j] += 1
+            }
+        }
+    }
+
+    // Make predictions!
+    const model = await tf.loadLayersModel('https://raw.githubusercontent.com/epfl-exts/powercoders-ai/master/python-code/tfjs-model/model.json');
+    const preds_tensor = model.predict(tf.tensor(text_encoded, shape=[1, vocabulary.length]))
+
+    // Print them
+    preds_tensor.data().then(function(probs) {
+        output = ''
+        for (var i = 0; i < languages.length; i++) {
+            var spaces = ' '.repeat(15 - languages[i].length)
+            output += languages[i] + spaces + (100*probs[i]).toFixed(2) + '%<br />'
+        }
+        document.getElementById("prediction").innerHTML = output
+    });
+}
+    </script>
+	<script src="/javascripts/phonepad.js"></script>
+
+</body>
+
 </html>

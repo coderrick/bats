@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var twilioTestRouter = require('./routes/twiliotest');
 var dialerRouter = require('./routes/dialer');
 var metricsRouter = require('./routes/metrics');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/twiliotest', twilioTestRouter);
 app.use('/dialer', dialerRouter);
 app.use('/metrics', metricsRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
